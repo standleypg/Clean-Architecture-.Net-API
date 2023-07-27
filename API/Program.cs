@@ -1,8 +1,10 @@
+using API.Common.Errors;
 using API.Filters;
 using API.Middleware;
 using Application;
 using Infrastructure;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -14,6 +16,9 @@ var builder = WebApplication.CreateBuilder(args);
 
     // injection services from application and infrastructure
     builder.Services.AddApplication().AddInfrastructure(builder.Configuration);
+
+    //overiding default problem details factory for customizing problem details
+    builder.Services.AddSingleton<ProblemDetailsFactory, CleanArchitectureProblemDetailsFactory>();
 }
 
 var app = builder.Build();
