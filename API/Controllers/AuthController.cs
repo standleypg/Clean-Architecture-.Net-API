@@ -1,3 +1,4 @@
+using API.Filters;
 using Application.Services;
 using Contracts;
 using Contracts.Auth;
