@@ -8,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddSwaggerGen();
 
     // injection services from application and infrastructure
-    builder.Services.AddApplication();
-    builder.Services.AddInfrastructure();
+    builder.Services.AddApplication().AddInfrastructure(builder.Configuration);
 }
 
 var app = builder.Build();
