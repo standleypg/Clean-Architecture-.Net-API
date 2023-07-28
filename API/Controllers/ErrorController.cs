@@ -6,7 +6,7 @@ namespace API.Controllers;
 public class ErrorController : ControllerBase
 {
     [Route("/error")]
-    public IActionResult Error()
+    protected IActionResult Error()
     {
         Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
 
