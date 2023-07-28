@@ -3,3 +3,9 @@
 
 ### About
 Reference for a clean architecture implementation for dotnet API 
+
+
+
+| Name | Diagram |
+| --- | --- |
+| Architecture diagram | ![Alt text](image.png) |
