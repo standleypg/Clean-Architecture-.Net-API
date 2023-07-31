@@ -1,6 +1,6 @@
 namespace Contracts;
 
-public record AuthResponse
+public record AuthenticationResponse
 (
     Guid id,
     string FirstName,

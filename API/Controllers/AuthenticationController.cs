@@ -5,27 +5,30 @@ using Contracts;
 using Contracts.Auth;
 using Domain.Common.Errors;
 using ErrorOr;
+using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [Route("auth")]
-public class AuthController : ApiController
+public class AuthenticationController : ApiController
 {
     private readonly ISender _mediator;
-    
-    public AuthController(ISender mediator)
+    private readonly IMapper _mapper;
+
+    public AuthenticationController(ISender mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        ErrorOr<AuthenticationResult> authResult = await _mediator.Send(new RegisterCommand(request.FirstName, request.LastName, request.Password, request.Email));
+        ErrorOr<AuthenticationResult> authResult = await _mediator.Send(_mapper.Map<RegisterCommand>(request));
         return authResult.Match(
-            authResult => Ok(MapAuthResult(authResult)),
+            authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
             errors => Problem(errors)
         );
     }
@@ -33,20 +36,16 @@ public class AuthController : ApiController
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        ErrorOr<AuthenticationResult> authResult = await _mediator.Send(new LoginQuery(request.Email, request.Password));
+        ErrorOr<AuthenticationResult> authResult = await _mediator.Send(_mapper.Map<LoginQuery>(request));
 
         if(authResult.IsError && authResult.FirstError == Errors.Auth.InvalidCredentials())
             return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
         
 
         return authResult.Match(
-            authResult => Ok(MapAuthResult(authResult)),
+            authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
             errors => Problem(errors)
         );
-    }
-    private static AuthResponse MapAuthResult(AuthenticationResult authResult)
-    {
-        return new AuthResponse(authResult.User.Id, authResult.User.FirstName, authResult.User.LastName, authResult.User.Email, authResult.Token);
     }
 
 }
