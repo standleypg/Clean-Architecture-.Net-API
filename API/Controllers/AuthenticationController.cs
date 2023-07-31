@@ -1,17 +1,18 @@
 using Application.Authentication.Commands.Register;
 using Application.Authentication.Common;
 using Application.Authentication.Queries.Login;
-using Contracts;
-using Contracts.Auth;
+using Contracts.Authentication;
 using Domain.Common.Errors;
 using ErrorOr;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [Route("auth")]
+[AllowAnonymous]
 public class AuthenticationController : ApiController
 {
     private readonly ISender _mediator;

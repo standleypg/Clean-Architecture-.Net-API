@@ -1,8 +1,7 @@
 using Application.Authentication.Commands.Register;
 using Application.Authentication.Common;
 using Application.Authentication.Queries.Login;
-using Contracts;
-using Contracts.Auth;
+using Contracts.Authentication;
 using Mapster;
 
 namespace API.Common.Mapping;

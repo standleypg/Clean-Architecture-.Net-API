@@ -1,4 +1,4 @@
-namespace Contracts.Auth;
+namespace Contracts.Authentication;
 
 public record RegisterRequest
 (
