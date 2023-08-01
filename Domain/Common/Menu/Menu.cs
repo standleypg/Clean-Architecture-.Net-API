@@ -10,7 +10,7 @@ namespace Domain.Common.Menu;
 public sealed class Menu : AggregateRoot<MenuId>
 {
 
-    public Menu(MenuId menuId,string name, string description,HostId hostId,DateTime createdDatetime, DateTime updatedDateTime) : base(menuId)
+    public Menu(MenuId menuId, string name, string description, HostId hostId, DateTime createdDatetime, DateTime updatedDateTime) : base(menuId)
     {
         Name = name;
         Description = description;
@@ -19,12 +19,12 @@ public sealed class Menu : AggregateRoot<MenuId>
         UpdatedDatetime = updatedDateTime;
     }
 
-    public readonly List<MenuSection> _menuSections=new();
-    public readonly List<DinnerId> _dinnerIds=new();
-    public readonly List<MenuReviewId> _menuReviewIds=new();
+    public readonly List<MenuSection> _menuSections = new();
+    public readonly List<DinnerId> _dinnerIds = new();
+    public readonly List<MenuReviewId> _menuReviewIds = new();
 
     public string Name { get; }
-    public string Description { get;  }
+    public string Description { get; }
     public float AverageRating { get; }
     public IReadOnlyList<MenuSection> MenuSections => _menuSections.AsReadOnly();
 

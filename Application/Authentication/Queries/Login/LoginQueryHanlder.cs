@@ -22,15 +22,15 @@ public class LoginQueryHanlder : IRequestHandler<LoginQuery, ErrorOr<Authenticat
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        //1. check user if exists
-        if(_userRepository.GetUserByEmail(query.Email) is not User user)
+        // 1. check user if exists
+        if (_userRepository.GetUserByEmail(query.Email) is not User user)
             return Errors.Auth.InvalidCredentials();
 
-        //2. validate password is correct
-        if(user.Password != query.Password)
-            return new[] {Errors.Auth.InvalidCredentials()};//just an example of returning list of errors
+        // 2. validate password is correct
+        if (user.Password != query.Password)
+            return new[] { Errors.Auth.InvalidCredentials() }; // just an example of returning list of errors
 
-        //3. create JwtToken
+        // 3. create JwtToken
         var token = _jwtTokenGenerator.GenerateToken(user);
 
         return new AuthenticationResult(user, token);

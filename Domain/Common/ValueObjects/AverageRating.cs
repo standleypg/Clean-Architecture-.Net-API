@@ -26,13 +26,13 @@ public class AverageRating : ValueObject
         Value = ((Value * NumRatings) + rating.Value) / ++NumRatings;
     }
 
+    public override IEnumerable<object> GetEqualityComponents()
+    {
+        yield return Value;
+    }
     internal void RemoveRating(Rating rating)
     {
         Value = ((Value * NumRatings) - rating.Value) / --NumRatings;
     }
 
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
 }

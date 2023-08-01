@@ -31,7 +31,7 @@ public static class DependencyInjection
                 Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
                 In = ParameterLocation.Header,
                 Name = "Authorization",
-                Type = SecuritySchemeType.ApiKey
+                Type = SecuritySchemeType.ApiKey,
             });
 
             c.OperationFilter<SecurityRequirementsOperationFilter>();

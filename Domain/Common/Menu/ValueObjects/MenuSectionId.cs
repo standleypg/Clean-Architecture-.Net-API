@@ -1,4 +1,3 @@
-
 using Domain.Common.Models;
 
 namespace Domain.Common.Menu.ValueObjects;

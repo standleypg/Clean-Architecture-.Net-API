@@ -25,7 +25,7 @@ insert_final_newline = false
 [*.{cs,vb}]
 
 # Organize usings
-dotnet_separate_import_directive_groups = true
+dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = true
 file_header_template = unset
 
@@ -361,4 +361,32 @@ dotnet_naming_style.s_camelcase.required_prefix = s_
 dotnet_naming_style.s_camelcase.required_suffix = 
 dotnet_naming_style.s_camelcase.word_separator = 
 dotnet_naming_style.s_camelcase.capitalization = camel_case
+
+# StyleCop settings
+dotnet_diagnostic.SA1101.severity = none
+dotnet_diagnostic.SA1503.severity = none
+dotnet_diagnostic.SA1128.severity = none
+dotnet_diagnostic.SA1111.severity = none
+dotnet_diagnostic.SA1309.severity = none
+dotnet_diagnostic.SA1401.severity = none
+dotnet_diagnostic.SA1201.severity = none
+dotnet_diagnostic.SA1127.severity = none
+dotnet_diagnostic.SA1516.severity = none
+dotnet_diagnostic.SA1505.severity = none
+dotnet_diagnostic.SA1518.severity = none
+dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.SA1513.severity = none
+dotnet_diagnostic.SA1508.severity = none
+dotnet_diagnostic.SA1402.severity = none
+dotnet_diagnostic.SA1024.severity = none
+dotnet_diagnostic.SA1028.severity = none
+dotnet_diagnostic.SA1009.severity = none
+dotnet_diagnostic.SA0001.severity = none
+dotnet_diagnostic.SA1005.severity = none
+dotnet_diagnostic.SA1515.severity = none
+dotnet_diagnostic.SA1001.severity = none
+dotnet_diagnostic.SA1312.severity = none
+dotnet_diagnostic.SA1500.severity = none
+
+
 

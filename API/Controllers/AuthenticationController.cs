@@ -39,10 +39,9 @@ public class AuthenticationController : ApiController
     {
         ErrorOr<AuthenticationResult> authResult = await _mediator.Send(_mapper.Map<LoginQuery>(request));
 
-        if(authResult.IsError && authResult.FirstError == Errors.Auth.InvalidCredentials())
+        if (authResult.IsError && authResult.FirstError == Errors.Auth.InvalidCredentials())
             return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
         
-
         return authResult.Match(
             authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
             errors => Problem(errors)
