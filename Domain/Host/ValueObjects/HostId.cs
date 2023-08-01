@@ -20,4 +20,11 @@ public class HostId : ValueObject
     {
         yield return Value;
     }
+
+    public static HostId Create(string hostId)
+    {
+        if (Guid.TryParse(hostId, out var hostIdGuid))
+            return new(hostIdGuid);
+        return CreateUnique();
+    }
 }
