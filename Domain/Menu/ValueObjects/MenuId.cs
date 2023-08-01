@@ -1,16 +1,16 @@
 using Domain.Common.Models;
 
-namespace Domain.Common.Menu.ValueObjects;
+namespace Domain.Menu.ValueObjects;
 
-public sealed class MenuSectionId : ValueObject
+public sealed class MenuId : ValueObject
 {
-    private MenuSectionId(Guid value)
+    private MenuId(Guid value)
     {
         Value = value;
     }
 
     public Guid Value { get; }
-    public static MenuSectionId CreateUnique() => new(Guid.NewGuid());
+    public static MenuId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()
     {

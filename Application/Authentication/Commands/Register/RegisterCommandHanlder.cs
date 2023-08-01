@@ -1,8 +1,9 @@
 using Application.Authentication.Common;
 using Application.Common.Interfaces;
 using Application.Common.Interfaces.Persistence;
-using Domain;
 using Domain.Common.Errors;
+using Domain.User;
+using Domain.User.ValueObjects;
 using ErrorOr;
 using MediatR;
 
@@ -23,17 +24,11 @@ public class RegisterCommandHanlder : IRequestHandler<RegisterCommand, ErrorOr<A
     {
         await Task.CompletedTask;
         // 1. check user if already exists
-        if (_userRepository.GetUserByEmail(command.Email) != null)
+        if (_userRepository.GetUserByEmail(command.Email) is not null)
             return Errors.User.DuplicateEmail();
 
         // 2. create user (generate id)
-        var user = new User
-        {
-            FirstName = command.FirstName,
-            LastName = command.LastName,
-            Email = command.Email,
-            Password = command.Password,
-        };
+        var user = new User(UserId.CreateUnique(), command.FirstName, command.LastName, command.Email, command.Password);
 
         _userRepository.Add(user);
 

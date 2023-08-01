@@ -1,11 +1,11 @@
-using Domain.Common.Dinner.ValueObjects;
-using Domain.Common.Host.ValueObjects;
-using Domain.Common.Menu.Entities;
-using Domain.Common.Menu.ValueObjects;
-using Domain.Common.MenuReview.ValueObjects;
+using Domain.Dinner.ValueObjects;
+using Domain.Host.ValueObjects;
+using Domain.Menu.Entities;
+using Domain.Menu.ValueObjects;
+using Domain.MenuReview.ValueObjects;
 using Domain.Common.Models;
 
-namespace Domain.Common.Menu;
+namespace Domain.Menu;
 
 public sealed class Menu : AggregateRoot<MenuId>
 {
