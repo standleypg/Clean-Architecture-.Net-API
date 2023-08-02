@@ -8,7 +8,7 @@ using Domain.Common.ValueObjects;
 
 namespace Domain.Menu;
 
-public sealed class Menu : AggregateRoot<MenuId>
+public sealed class Menu : AggregateRoot<MenuId, Guid>
 {
 
     public Menu(MenuId menuId, string name, string description, HostId hostId, DateTime createdDatetime, DateTime updatedDateTime, AverageRating averageRating, List<MenuSections> sections) : base(menuId)

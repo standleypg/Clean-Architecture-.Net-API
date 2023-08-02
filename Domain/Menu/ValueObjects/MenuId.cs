@@ -2,14 +2,14 @@ using Domain.Common.Models;
 
 namespace Domain.Menu.ValueObjects;
 
-public sealed class MenuId : ValueObject
+public sealed class MenuId : AggregateRootId<Guid>
 {
+    public override Guid Value { get; protected set; }
     private MenuId(Guid value)
     {
         Value = value;
     }
 
-    public Guid Value { get; private set; }
     public static MenuId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()
