@@ -36,6 +36,7 @@ public class MenusController : ApiController
 
     protected async Task<IActionResult> GetMenu(string hostId, string menuId)
     {
+        await Task.CompletedTask;
         return Ok();
     }
 }

@@ -26,17 +26,17 @@ public sealed class Guest : AggregateRoot<GuestId>
     public readonly List<MenuReviewId> _menuReviewIds = new();
     public readonly List<Rating> _ratings = new();
 
-    public string LastName { get; }
-    public string FirstName { get; }
-    public string ProfileImage { get; }
-    public AverageRating AverageRating { get; }
-    public UserId UserId { get; }
+    public string LastName { get; private set; }
+    public string FirstName { get; private set; }
+    public string ProfileImage { get; private set; }
+    public AverageRating AverageRating { get; private set; }
+    public UserId UserId { get; private set; }
     public IReadOnlyList<DinnerId> UpcomingDinnerIds => _upcomingDinnerIds.AsReadOnly();
     public IReadOnlyList<DinnerId> PastDinnerIds => _pastDinnerIds.AsReadOnly();
     public IReadOnlyList<DinnerId> PendingDinnerIds => _pendingDinnerIds.AsReadOnly();
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
     public IReadOnlyList<Rating> Ratings => _ratings.AsReadOnly();
-    public DateTime CreatedDatetime { get; }
-    public DateTime UpdatedDatetime { get; }
+    public DateTime CreatedDatetime { get; private set; }
+    public DateTime UpdatedDatetime { get; private set; }
 
 }

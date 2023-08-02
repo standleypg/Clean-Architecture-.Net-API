@@ -24,12 +24,12 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
             HostId.Create(request.HostId),
             name: request.Name,
             description: request.Description,
-            menuSections: request.Sections.ConvertAll(s =>
-                MenuSection.Create(
+            sections: request.Sections.ConvertAll(s =>
+                MenuSections.Create(
                     name: s.Name,
                     description: s.Description,
                     items: s.Items.ConvertAll(i =>
-                        MenuSectionItem.Create(
+                        MenuItem.Create(
                             name: i.Name,
                             description: i.Description
                         )

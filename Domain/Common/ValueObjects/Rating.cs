@@ -14,11 +14,11 @@ public sealed class Rating : AggregateRoot<RatingId>
         CreatedDatetime = createdDatetime;
         UpdatedDatetime = updatedDatetime;
     }
-    public HostId HostId { get; }
-    public DinnerId DinnerId { get; }
-    public int Value { get; }
-    public DateTime CreatedDatetime { get; }
-    public DateTime UpdatedDatetime { get; }
+    public HostId HostId { get; private set; }
+    public DinnerId DinnerId { get; private set; }
+    public int Value { get; private set; }
+    public DateTime CreatedDatetime { get; private set; }
+    public DateTime UpdatedDatetime { get; private set; }
 }
 
 public sealed class RatingId : ValueObject
@@ -28,7 +28,7 @@ public sealed class RatingId : ValueObject
         Value = value;
     }
 
-    public Guid Value { get; }
+    public Guid Value { get; private set; }
     public static RatingId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()

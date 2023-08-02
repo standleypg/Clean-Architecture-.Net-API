@@ -22,13 +22,13 @@ public sealed class Host : AggregateRoot<HostId>
     public readonly List<MenuId> _menuIds = new List<MenuId>();
     public readonly List<DinnerId> _dinnerIds = new List<DinnerId>();
 
-    public string FirstName { get; }
-    public string LastName { get; }
-    public string ProfileImage { get; }
-    public string AverageRating { get; }
-    public UserId UserId { get; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string ProfileImage { get; private set; }
+    public string AverageRating { get; private set; }
+    public UserId UserId { get; private set; }
     public IReadOnlyList<MenuId> MenuIds => _menuIds.AsReadOnly();
     public IReadOnlyList<DinnerId> DinnerIds => _dinnerIds.AsReadOnly();
-    public DateTime CreatedDatetime { get; }
-    public DateTime UpdatedDatetime { get; }
+    public DateTime CreatedDatetime { get; private set; }
+    public DateTime UpdatedDatetime { get; private set; }
 }

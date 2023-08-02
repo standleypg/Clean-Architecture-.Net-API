@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Common.Models;
 
-public class Entity<TId> : IEquatable<Entity<TId>> where TId : notnull
+public abstract class Entity<TId> : IEquatable<Entity<TId>> where TId : notnull
 {
-    public TId Id { get; protected set; }
+    public TId Id { get; private set; }
     protected Entity(TId id)
     {
         Id = id;
@@ -37,4 +37,10 @@ public class Entity<TId> : IEquatable<Entity<TId>> where TId : notnull
     {
         return Id.GetHashCode();
     }
+
+#pragma warning disable CS8618
+    protected Entity()
+    {
+    }
+#pragma warning restore CS8618
 }

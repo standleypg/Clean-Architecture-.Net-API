@@ -9,7 +9,7 @@ public sealed class DinnerId : ValueObject
         Value = value;
     }
 
-    public Guid Value { get; }
+    public Guid Value { get; private set; }
     public static DinnerId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()

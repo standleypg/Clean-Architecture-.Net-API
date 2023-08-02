@@ -8,7 +8,7 @@ public sealed class BillId : ValueObject
     {
         Value = value;
     }
-    public Guid Value { get; }
+    public Guid Value { get; private set; }
     public static BillId CreateUnique() => new(Guid.NewGuid());
     public override IEnumerable<object> GetEqualityComponents()
     {

@@ -1,12 +1,12 @@
 using Application.Menus.Commands.CreateMenu;
 using Contracts.Menus;
 using Domain.Menu;
-using Domain.Menu.Entities;
 using Mapster;
 
 namespace API.Common.Mapping;
 
-using MenuSection = Domain.Menu.Entities.MenuSection;
+using MenuSections = Domain.Menu.Entities.MenuSections;
+using MenuItem = Domain.Menu.Entities.MenuItem;
 public class MenuMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)
@@ -22,10 +22,10 @@ public class MenuMappingConfig : IRegister
         .Map(dest => dest.DinnerIds, src => src.DinnerIds.Select(d => d.Value))
         .Map(dest => dest.MenuReviewIds, src => src.MenuReviewIds.Select(d => d.Value));
 
-        config.NewConfig<MenuSection, MenuSectionResponse>()
+        config.NewConfig<MenuSections, MenuSectionResponse>()
         .Map(dest => dest.Id, src => src.Id.Value);
 
-        config.NewConfig<MenuSectionItem, MenuItemResponse>()
+        config.NewConfig<MenuItem, MenuItemResponse>()
         .Map(dest => dest.Id, src => src.Id.Value);
 
     }

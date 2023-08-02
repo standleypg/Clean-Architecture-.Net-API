@@ -13,7 +13,7 @@ public class HostId : ValueObject
         Value = value;
     }
 
-    public Guid Value { get; }
+    public Guid Value { get; private set; }
     public static HostId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()
@@ -21,10 +21,8 @@ public class HostId : ValueObject
         yield return Value;
     }
 
-    public static HostId Create(string hostId)
+    public static HostId Create(Guid hostId)
     {
-        if (Guid.TryParse(hostId, out var hostIdGuid))
-            return new(hostIdGuid);
-        return CreateUnique();
+        return new(hostId);
     }
 }

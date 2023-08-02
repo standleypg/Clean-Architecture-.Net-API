@@ -8,6 +8,7 @@
     <PackageReference Include="Mapster" Version="7.3.0"/>
     <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0"/>
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.8"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj"/>

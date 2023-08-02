@@ -19,10 +19,10 @@ public sealed class Bill : AggregateRoot<BillId>
         UpdatedDatetime = updatedDateTime;
     }
 
-    public DinnerId DinnerId { get; }
-    public GuestId GuestId { get; }
-    public HostId HostId { get; }
-    public Price Price { get; }
-    public DateTime CreatedDatetime { get; }
-    public DateTime UpdatedDatetime { get; }
+    public DinnerId DinnerId { get; private set; }
+    public GuestId GuestId { get; private set; }
+    public HostId HostId { get; private set; }
+    public Price Price { get; private set; }
+    public DateTime CreatedDatetime { get; private set; }
+    public DateTime UpdatedDatetime { get; private set; }
 }

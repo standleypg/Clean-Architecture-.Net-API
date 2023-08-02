@@ -10,8 +10,8 @@ public sealed class Location
         Longitude = longitude;
     }
 
-    public string Name { get; }
-    public string Address { get; }
-    public string Latitude { get; }
-    public string Longitude { get; }
+    public string Name { get; private set; }
+    public string Address { get; private set; }
+    public string Latitude { get; private set; }
+    public string Longitude { get; private set; }
 }

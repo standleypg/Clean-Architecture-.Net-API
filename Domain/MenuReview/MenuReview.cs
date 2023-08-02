@@ -19,11 +19,11 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
         UpdatedDatetime = updatedDatetime;
     }
 
-    public float Rating { get; }
-    public string Comment { get; }
-    public HostId HostId { get; }
-    public MenuId MenuId { get; }
-    public DinnerId DinnerId { get; }
-    public DateTime CreatedDatetime { get; }
-    public DateTime UpdatedDatetime { get; }
+    public float Rating { get; private set; }
+    public string Comment { get; private set; }
+    public HostId HostId { get; private set; }
+    public MenuId MenuId { get; private set; }
+    public DinnerId DinnerId { get; private set; }
+    public DateTime CreatedDatetime { get; private set; }
+    public DateTime UpdatedDatetime { get; private set; }
 }
