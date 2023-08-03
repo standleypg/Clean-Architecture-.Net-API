@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "6FqI4syPHvBEjn5xXJUpmuDvJMlzJgbRYva5iPAtZwopOx44P4cb7QvAAdP2HtmkdAx3N3TuRKjLvkAxbm28hw==",
+  "success": true,
+  "projectFilePath": "/home/standleypg/projects/CleanArchitecture.v2/src/Domain/Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/standleypg/.nuget/packages/erroror/1.2.1/erroror.1.2.1.nupkg.sha512",
+    "/home/standleypg/.nuget/packages/mediatr/12.1.1/mediatr.12.1.1.nupkg.sha512",
+    "/home/standleypg/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/home/standleypg/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
