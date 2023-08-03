@@ -5,6 +5,7 @@ using Domain.Menu.ValueObjects;
 using Domain.MenuReview.ValueObjects;
 using Domain.Common.Models;
 using Domain.Common.ValueObjects;
+using Domain.Menu.Events;
 
 namespace Domain.Menu;
 
@@ -40,7 +41,19 @@ public sealed class Menu : AggregateRoot<MenuId, Guid>
 
     public static Menu Create(HostId hostId, string name, string description, List<MenuSections> sections)
     {
-        return new(MenuId.CreateUnique(), name, description, hostId, DateTime.UtcNow, DateTime.UtcNow, AverageRating.CreateNew(), sections ?? new());
+        var menu = new Menu(
+            MenuId.CreateUnique(),
+            name,
+            description,
+            hostId,
+            DateTime.UtcNow,
+            DateTime.UtcNow,
+            AverageRating.CreateNew(),
+            sections ?? new());
+
+        menu.AddDomainEvent(new MenuCreatedEvent(menu));
+
+        return menu;
     }
 
 #pragma warning disable CS8618
