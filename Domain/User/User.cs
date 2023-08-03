@@ -3,7 +3,7 @@ using Domain.User.ValueObjects;
 
 namespace Domain.User;
 
-public sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<UserId, Guid>
 {
     public User(UserId userId, string firstName, string lastName, string email, string password) : base(userId)
     {

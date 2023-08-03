@@ -7,7 +7,7 @@ using Domain.Menu.ValueObjects;
 
 namespace Domain.Dinner.Entities;
 
-public sealed class Reservation : AggregateRoot<ReservationId>
+public sealed class Reservation : AggregateRoot<ReservationId, Guid>
 {
     public Reservation(ReservationId reservationId, string name, string description, DateTime startDateTime, DateTime endDateTime, DateTime startedDateTime, DateTime endedDateTime, Status status, bool isPublic, int maxGuests, Price price, HostId hostId, MenuId menuId, string imageUrl, Location location, DateTime createdDatetime, DateTime updatedDatetime) : base(reservationId)
     {

@@ -6,7 +6,7 @@ using Domain.User.ValueObjects;
 
 namespace Domain.Host;
 
-public sealed class Host : AggregateRoot<HostId>
+public sealed class Host : AggregateRoot<HostId, Guid>
 {
     public Host(HostId hostId, string firstName, string lastName, string profileImage, string averageRating, UserId userId, DateTime createdDatetime, DateTime updatedDatetime) : base(hostId)
     {

@@ -2,12 +2,12 @@ namespace Contracts.Menus;
 
 public record MenuResponse
 (
-    string Id,
+    Guid Id,
     string Name,
     string Description,
     AverageRating? AverageRating,
     List<MenuSectionResponse> Sections,
-    string HostId,
+    Guid HostId,
     List<string> DinnerIds,
     List<string> MenuReviewIds,
     DateTime CreatedDateTime,

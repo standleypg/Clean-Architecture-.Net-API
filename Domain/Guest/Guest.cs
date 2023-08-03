@@ -7,7 +7,7 @@ using Domain.User.ValueObjects;
 
 namespace Domain.Guest;
 
-public sealed class Guest : AggregateRoot<GuestId>
+public sealed class Guest : AggregateRoot<GuestId, Guid>
 {
     public Guest(GuestId guestId, UserId userId, string lastName, string firstName, string profileImage, AverageRating averageRating, DateTime createdDatetime, DateTime updatedDatetime) : base(guestId)
     {

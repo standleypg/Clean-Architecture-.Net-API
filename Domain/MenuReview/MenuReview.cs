@@ -6,7 +6,7 @@ using Domain.Common.Models;
 
 namespace Domain.MenuReview;
 
-public sealed class MenuReview : AggregateRoot<MenuReviewId>
+public sealed class MenuReview : AggregateRoot<MenuReviewId, Guid>
 {
     public MenuReview(MenuReviewId menuReviewId, float rating, string comment, HostId hostId, MenuId menuId, DinnerId dinnerId, DateTime createdDatetime, DateTime updatedDatetime) : base(menuReviewId)
     {

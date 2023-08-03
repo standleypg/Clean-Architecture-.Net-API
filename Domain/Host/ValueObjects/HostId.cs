@@ -6,14 +6,14 @@ using Domain.Common.Models;
 
 namespace Domain.Host.ValueObjects;
 
-public class HostId : ValueObject
+public class HostId : AggregateRootId<Guid>
 {
     private HostId(Guid value)
     {
         Value = value;
     }
 
-    public Guid Value { get; private set; }
+    public override Guid Value { get; protected set; }
     public static HostId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()

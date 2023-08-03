@@ -4,7 +4,7 @@ using Domain.Common.Models;
 
 namespace Domain.Common.ValueObjects;
 
-public sealed class Rating : AggregateRoot<RatingId>
+public sealed class Rating : AggregateRoot<RatingId, Guid>
 {
     public Rating(RatingId ratingId, HostId hostId, DinnerId dinnerId, int value, DateTime createdDatetime, DateTime updatedDatetime) : base(ratingId)
     {
@@ -21,14 +21,14 @@ public sealed class Rating : AggregateRoot<RatingId>
     public DateTime UpdatedDatetime { get; private set; }
 }
 
-public sealed class RatingId : ValueObject
+public sealed class RatingId : AggregateRootId<Guid>
 {
     private RatingId(Guid value)
     {
         Value = value;
     }
 
-    public Guid Value { get; private set; }
+    public override Guid Value { get; protected set; }
     public static RatingId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()

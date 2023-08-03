@@ -7,7 +7,7 @@ using Domain.Common.ValueObjects;
 
 namespace Domain.Bill;
 
-public sealed class Bill : AggregateRoot<BillId>
+public sealed class Bill : AggregateRoot<BillId, Guid>
 {
     public Bill(BillId billId, DinnerId dinnerId, GuestId guestId, HostId hostId, Price price, DateTime createdDatetime, DateTime updatedDateTime) : base(billId)
     {

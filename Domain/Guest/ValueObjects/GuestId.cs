@@ -2,14 +2,14 @@ using Domain.Common.Models;
 
 namespace Domain.Guest.ValueObjects;
 
-public sealed class GuestId : ValueObject
+public sealed class GuestId : AggregateRootId<Guid>
 {
     private GuestId(Guid value)
     {
         Value = value;
     }
 
-    public Guid Value { get; private set; }
+    public override Guid Value { get; protected set; }
     public static GuestId CreateUnique() => new(Guid.NewGuid());
 
     public override IEnumerable<object> GetEqualityComponents()
