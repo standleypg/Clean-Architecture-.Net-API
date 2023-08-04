@@ -1,5 +1,5 @@
 README.Release.md
 request.http
 
-*/bin
-*/obj
+**/bin/
+**/obj/
